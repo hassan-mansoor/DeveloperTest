@@ -13,20 +13,20 @@
 							<asp:Label runat="server" ID="_nameLbl" CssClass="myLabel">Name</asp:Label></td>
 						<td>
 							<asp:TextBox runat="server" ID="_nameText"></asp:TextBox>
-							<asp:RequiredFieldValidator runat="server" ID="_nameRequired" ErrorMessage="Bitte einen Namen angeben." ControlToValidate="_nameText" />
+                            <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ErrorMessage="Please Specify Name." ControlToValidate="_nameText"  Display="static"/>						                        
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<asp:Label runat="server" ID="_qtyLbl" CssClass="myLabel">Menge</asp:Label></td>
 						<td>
-							<asp:TextBox runat="server" ID="_qtyText"></asp:TextBox></td>
+							<asp:TextBox runat="server" ID="_qtyText" type="number"></asp:TextBox></td>
 					</tr>
 					<tr>
 						<td>
 							<asp:Label runat="server" ID="_lblPrice" CssClass="myLabel">Preis</asp:Label></td>
 						<td>
-							<asp:TextBox runat="server" ID="_priceTxt"></asp:TextBox></td>
+							<asp:TextBox runat="server" ID="_priceTxt" type="number"></asp:TextBox></td>
 					</tr>
 					<tr>
 						<td>
@@ -34,13 +34,13 @@
 						<td>
 							<asp:ListBox runat="server" ID="_currencyList" Rows="1">
 								<asp:ListItem Text="USD" Value="USD" />
-								<asp:ListItem Text="CHF" Value="EUR" />
+								<asp:ListItem Text="CHF" Value="CHF" />
 								<asp:ListItem Text="EUR" Value="EUR" />
 								<asp:ListItem Text="YEN" Value="YEN" />
 							</asp:ListBox></td>
 					</tr>
 					<tr>
-						<td colspan="2" style="text-align:right"><asp:Button runat="server" Text="Eingabe absenden" ID="_sendInput" OnCommand="_sendInput_Command" OnClientClick="return MyAwesomeMethod();" /></td>
+						<td colspan="2" style="text-align:right"><asp:Button runat="server" Text="Eingabe absenden" ID="_sendInput" OnCommand="_sendInput_Command" OnClientClick="return confirmDialogue();" /></td>
 					</tr>
 				</table>
 			</td>
@@ -72,7 +72,9 @@
 		</tr>
 	</table>
 
-	<script type="text/javascript">
-		function MyAwesomeMethod(){return !confirm('Sicher, dass das abgesendet werden soll?');}
+	 <script type="text/javascript">
+	     function confirmDialogue() {
+	         return confirm('Sicher, dass das abgesendet werden soll?') ? true : false;
+	     }
 </script>
 </asp:Content>

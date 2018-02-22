@@ -27,7 +27,7 @@ namespace DevTestData {
 		/// Liefert eine konfigurierte <see cref="ISessionFactory"/>
 		/// </summary>
 		internal static ISessionFactory SessionFactory {
-			get => _sessionFactory;
+			get { return _sessionFactory; }
 		}
 
 	}
